@@ -21,8 +21,8 @@ import java.util.Scanner;
 //   anything during the discussion or modifies any computer file
 //   during the discussion. I have violated neither the spirit nor
 //   letter of this restriction.
-// Name: Deep Datta, PID: ddeep21
-
+//  Name: Deep Datta, PID: ddeep21
+//  Name: Enk Naran, PID: enknaran
 public class BigNumArithmetic {
 
     public static void main(String[] args) throws FileNotFoundException {
