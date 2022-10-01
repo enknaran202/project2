@@ -46,6 +46,7 @@ public class BigNumArithmetic {
     }
 
 
+    // Delete this eventually 
     public void printCalculations(String filepath) throws FileNotFoundException {
         Scanner scanIn = new Scanner(new File(filepath));
 
