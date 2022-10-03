@@ -43,7 +43,7 @@ public class LinkedList
             low = new Node<Integer>(number, low);
         }
     }
-
+ 
 
     /**
      * Enter a new number into the END of the list
