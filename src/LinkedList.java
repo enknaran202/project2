@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 // I DONT KNOW ENOUGH ABOUT THE ALGO TO DO THIS DATA STRUCTURE
 /**
  * Linked list with access to end.
@@ -13,6 +15,7 @@ public class LinkedList
 {
     private Node<Integer> low;
     private Node<Integer> high;
+    private Node<Integer> cur;
 
     /**
      * LinkedList constructor
@@ -22,12 +25,13 @@ public class LinkedList
     {
         high = null;
         low = null;
+        cur = null;
     }
 
 
     /**
      * Enter a new number into the beginning of the list
-     * 
+     * The current pointer is set to the new entry
      * @param number
      *            The number to be entered into the list
      */
@@ -36,11 +40,13 @@ public class LinkedList
         if (isEmpty())
         {
             high = low = new Node<Integer>(number, null);
+            cur = low;
         }
 
         else
         {
             low = new Node<Integer>(number, low);
+            cur = low;
         }
     }
  
@@ -57,12 +63,53 @@ public class LinkedList
         if (isEmpty())
         {
             high = low = new Node<Integer>(number, null);
+            cur = low;
         }
         else
         {
             high.setNext(new Node<Integer>(number, null));
             high = high.getNext();
         }
+    }
+
+    /**
+     * Returns the value in the current node and moves current to the next node
+     * 
+     * @return boolean
+     *         True if empty, False if not
+     * 
+     */
+    @SuppressWarnings("unchecked")
+    public Integer next()
+    {
+        if (!hasNext())
+        {
+            throw new NoSuchElementException("No nodes left in the list.");
+        }
+        Integer toReturn = cur.getData();
+        cur = cur.getNext();
+        return toReturn;
+    }
+    
+    /**
+     * Checks to see if the current pointer is at the end of the list
+     * 
+     * @return boolean
+     *         True if not at end. False if at end
+     * 
+     */
+    public boolean hasNext()
+    {
+        return cur != null;
+    }
+    
+    /**
+     * Puts current to the beginning of the list
+     * 
+     */
+    public void resetCurrent()
+    {
+        cur = low;
     }
 
 
