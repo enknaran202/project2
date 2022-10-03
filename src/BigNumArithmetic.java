@@ -36,37 +36,18 @@ public class BigNumArithmetic {
         // need to reset our static variables for every test!
         // Let's avoid that by using the object approach like so: 
 
-        BigNumArithmetic superCalc = new BigNumArithmetic();
-        superCalc.printCalculations(inputFilePath);
+        //BigNumArithmetic superCalc = new BigNumArithmetic();
+        //superCalc.printCalculations(inputFilePath);
+        PrintCalculations calc = new PrintCalculations(inputFilePath);
     }
 
 
     public BigNumArithmetic() {
         // If I had any fields, I'd initialize them here
+        // My note: is this needed?
     }
 
-
-    // Delete this eventually 
-    public void printCalculations(String filepath) throws FileNotFoundException {
-        Scanner scanIn = new Scanner(new File(filepath));
-
-        while (scanIn.hasNextLine()) {
-            String line = scanIn.nextLine();
-            System.out.println("Input Line: " + line);
-
-            String[] words = line.split(" +");
-            for (int i = 0; i < words.length; i++) {
-
-                String word = words[i];
-                System.out.println("Input word: " + word);
-                // Something's not right here when the input has some tabs ...
-                // Maybe we should change the Regular Expression that's used
-                // for splitting the line into words? 
-                // And what happens when I have a blank line?
-            }
-        }
-        scanIn.close();
-
-    }
-
+    // Note: the printCalculations() method was here before but is 
+    // moved to PrintCalculations class for a separate parser implementation
+    
 }
