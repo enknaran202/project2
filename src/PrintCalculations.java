@@ -18,23 +18,29 @@ public class PrintCalculations
         
         Scanner scanIn = new Scanner(new File(fileName));
 
-        while (scanIn.hasNextLine()) {
+        while (scanIn.hasNext()) {
             String line = scanIn.nextLine();
-            System.out.println("Input Line: " + line);
-
-            if(line.length() == 0) { // will this check for empty blank lines since length is 0?
+            if(line.length() != 0 && (!line.equals("\\s+"))) { // need a way to avoid whitepspacing?
+                System.out.println("Input Line: " + line);
+           
                 
-                String[] words = line.split(" +*^");
-                for (int i = 0; i < words.length; i++) {
-
-                    String word = words[i];
-                    System.out.println("Input word: " + word);
+               String[] rpn = line.split(" ");
+                for (int i = 0; i < rpn.length; i++) {
+                    
+                    String val = rpn[i];
+                    if(!val.equals("")) {
+                        
+                        System.out.println("Input val: " + val);
+                        
+                    }
+                   
                     // Something's not right here when the input has some tabs ...
                     // Maybe we should change the Regular Expression that's used
                     // for splitting the line into words? 
                     // And what happens when I have a blank line?
-                }
                 
+                
+                } 
             }
             
         }

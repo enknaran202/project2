@@ -39,6 +39,8 @@ public class BigNumArithmetic {
         //BigNumArithmetic superCalc = new BigNumArithmetic();
         //superCalc.printCalculations(inputFilePath);
         PrintCalculations calc = new PrintCalculations(inputFilePath);
+        calc.printCalculations();
+        
     }
 
 
