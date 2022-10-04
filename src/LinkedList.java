@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
  * Linked list with access to end.
  * Able to input at the beginning and end of list.
  * Low -> node -> node -> node -> null
- * High-^
+ * ....................High-^
  * 
  * @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
  * @version 10/1/2022
@@ -32,6 +32,7 @@ public class LinkedList
     /**
      * Enter a new number into the beginning of the list
      * The current pointer is set to the new entry
+     * 
      * @param number
      *            The number to be entered into the list
      */
@@ -39,25 +40,25 @@ public class LinkedList
     {
         if (isEmpty())
         {
-            high = low = new Node<Integer>(number, null);
-            cur = low;
+            cur = high = low = new Node<Integer>(number, null);
+      
         }
 
         else
         {
-            low = new Node<Integer>(number, low);
-            cur = low;
+            Node<Integer> newNode = new Node<Integer>(number, low);
+            cur = low = newNode;
         }
     }
- 
+
 
     /**
      * Enter a new number into the END of the list
+     * Note: Current pointer is not reset
      * 
      * @param number
      *            The number to be entered into the list
      */
-    @SuppressWarnings("unchecked")
     public void addHigh(Integer number)
     {
         if (isEmpty())
@@ -71,6 +72,7 @@ public class LinkedList
             high = high.getNext();
         }
     }
+
 
     /**
      * Returns the value in the current node and moves current to the next node
@@ -90,7 +92,8 @@ public class LinkedList
         cur = cur.getNext();
         return toReturn;
     }
-    
+
+
     /**
      * Checks to see if the current pointer is at the end of the list
      * 
@@ -102,7 +105,8 @@ public class LinkedList
     {
         return cur != null;
     }
-    
+
+
     /**
      * Puts current to the beginning of the list
      * 
@@ -122,9 +126,8 @@ public class LinkedList
      */
     public boolean isEmpty()
     {
-        return low.getNext() == null;
+        return low == null;
     }
-
 
     /**
      * Clears the list
@@ -134,6 +137,24 @@ public class LinkedList
     {
         low = null;
         high = null;
+    }
+    
+    /**
+     * Prints the list in the correct order.
+     * Note: resets the current pointer to low
+     * 
+     * @return String
+     *              the list
+     */
+    public String toString()
+    {
+        String toReturn = "";
+        resetCurrent();
+        while(hasNext())
+        {
+            toReturn =  next().toString() + toReturn;
+        }
+        return toReturn;
     }
 
 }
