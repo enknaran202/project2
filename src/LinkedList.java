@@ -29,6 +29,12 @@ public class LinkedList
     }
 
 
+    public LinkedList(String input)
+    {
+        inputString(input);
+    }
+
+
     /**
      * Enter a new number into the beginning of the list
      * The current pointer is set to the new entry
@@ -70,6 +76,22 @@ public class LinkedList
         {
             high.setNext(new Node<Integer>(number, null));
             high = high.getNext();
+        }
+    }
+
+
+    /**
+     * Helper method to input a String
+     * Pre: The string must only contain numbers
+     * 
+     * @param number
+     *            The number to be entered into the list
+     */
+    private void inputString(String input)
+    {
+        for (int i = 0; i < input.length(); i++)
+        {
+            addLow(Integer.parseInt(String.valueOf(input.charAt(i))));
         }
     }
 

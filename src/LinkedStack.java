@@ -1,31 +1,31 @@
 
-public class LinkedStack<T>
+public class LinkedStack
 {
     private int size;
-    private Node<T> top;
+    private Node<LinkedList> top;
 
     public LinkedStack()
     {
         size = 0;
-        top = new Node<T>(null, null);
+        top = new Node<LinkedList>(null, null);
     }
 
 
-    public void push(T newNum)
+    public void push(LinkedList newNum)
     {
         // doublecheck to see if it works
-        top.setNext(new Node<T>(newNum, top.getNext()));
+        top.setNext(new Node<LinkedList>(newNum, top.getNext()));
         size++;
 
     }
 
 
-    public T pop()
+    public LinkedList pop()
     {
-        T toReturn = null;
+        LinkedList toReturn = null;
         if (!isEmpty())
         {
-            toReturn = (T)top.getNext().getData();
+            toReturn = (LinkedList)top.getNext().getData();
             top.setNext(top.getNext().getNext());
             size--;
         }
@@ -33,11 +33,11 @@ public class LinkedStack<T>
     }
 
 
-    public T peek()
+    public LinkedList peek()
     {
         if (!isEmpty())
         {
-            return (T)top.getNext().getData();
+            return (LinkedList)top.getNext().getData();
         }
         return null;
     }

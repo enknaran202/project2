@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-// Better put the honor code here...
 // On my honor:
 // - I have not used source code obtained from another student,
 //   or any other unauthorized source, either modified or
@@ -48,7 +47,7 @@ public class BigNumArithmetic {
         // If I had any fields, I'd initialize them here
         // My note: is this needed?
     }
-
+    
     // Note: the printCalculations() method was here before but is 
     // moved to PrintCalculations class for a separate parser implementation
     
