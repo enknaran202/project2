@@ -12,10 +12,10 @@ import student.TestCase;
  * @version 10/3/2022
  * 
  */
-public class LinkedListTest extends TestCase 
+public class LinkedListTest extends TestCase
 {
     private LinkedList list;
-    
+
     /**
      * 
      */
@@ -31,7 +31,8 @@ public class LinkedListTest extends TestCase
         list.addLow(7);
         list.addLow(8);
     }
-    
+
+
     /**
      * 
      */
@@ -39,9 +40,10 @@ public class LinkedListTest extends TestCase
     {
         assertEquals("12345678", list.toString());
         list.addLow(0);
-        assertEquals("123456780", list.toString());     
+        assertEquals("123456780", list.toString());
     }
-    
+
+
     /**
      * 
      */
@@ -51,13 +53,14 @@ public class LinkedListTest extends TestCase
         list.addHigh(0);
         assertEquals("012345678", list.toString());
     }
-    
+
+
     /**
      * 
      */
     public void testNext()
     {
-        
+
         assertEquals(8, (int)list.next());
         assertEquals(7, (int)list.next());
         assertEquals(6, (int)list.next());
@@ -66,8 +69,9 @@ public class LinkedListTest extends TestCase
         assertEquals(3, (int)list.next());
         assertEquals(2, (int)list.next());
         assertEquals(1, (int)list.next());
+
         Exception exception = null;
-        try 
+        try
         {
             list.next();
         }
@@ -75,47 +79,76 @@ public class LinkedListTest extends TestCase
         {
             exception = e;
         }
-        
-        assertTrue("No nodes left in the list.", exception instanceof NoSuchElementException);
+        assertTrue("No nodes left in the list.",
+            exception instanceof NoSuchElementException);
     }
-    
+
+
     /**
      * 
      */
     public void testHasNext()
     {
-        
+        assertTrue(list.hasNext());
+        list.next();
+        list.next();
+        list.next();
+        list.next();
+        list.next();
+        list.next();
+        list.next();
+        list.next();
+        assertFalse(list.hasNext());
     }
-    
+
+
     /**
      * 
      */
     public void testResetCurrent()
     {
-        
+        assertEquals(8, (int)list.next());
+        assertEquals(7, (int)list.next());
+        assertEquals(6, (int)list.next());
+        list.resetCurrent();
+        assertEquals(8, (int)list.next());
     }
-    
+
+
     /**
      * 
      */
     public void testIsEmpty()
     {
-        
+        assertFalse(list.isEmpty());
+
+        LinkedList emptyList = new LinkedList();
+        assertTrue(emptyList.isEmpty());
+
     }
-    
+
+
     /**
      * 
      */
     public void testClear()
     {
-        
+        list.clear();
+        assertTrue(list.isEmpty());
     }
-    
+
+
     /**
      * 
      */
     public void testToString()
     {
-        
+        assertEquals("12345678", list.toString());
+        list.addLow(0);
+        assertEquals("123456780", list.toString());
+        list.addHigh(9);
+        assertEquals("9123456780", list.toString());
+        list.clear();
+        assertEquals("", list.toString());
     }
 }

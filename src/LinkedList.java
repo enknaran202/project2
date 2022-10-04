@@ -41,7 +41,7 @@ public class LinkedList
         if (isEmpty())
         {
             cur = high = low = new Node<Integer>(number, null);
-      
+
         }
 
         else
@@ -129,6 +129,7 @@ public class LinkedList
         return low == null;
     }
 
+
     /**
      * Clears the list
      * 
@@ -138,21 +139,22 @@ public class LinkedList
         low = null;
         high = null;
     }
-    
+
+
     /**
      * Prints the list in the correct order.
      * Note: resets the current pointer to low
      * 
      * @return String
-     *              the list
+     *         the list
      */
     public String toString()
     {
         String toReturn = "";
         resetCurrent();
-        while(hasNext())
+        while (hasNext())
         {
-            toReturn =  next().toString() + toReturn;
+            toReturn = next().toString() + toReturn;
         }
         return toReturn;
     }

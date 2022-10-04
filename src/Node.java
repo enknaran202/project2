@@ -1,6 +1,6 @@
 
 class Node<T>
-{   //Used in both classes
+{ // Used in both classes
 
     private T data;
     private Node<T> next;
@@ -12,7 +12,8 @@ class Node<T>
         next = nextNode;
 
     }
-    
+
+
     public Node(Node<T> nextNode)
     {
         next = nextNode;
