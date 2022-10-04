@@ -1,11 +1,11 @@
 
-public class Node<T>
+class Node<T>
 {   //Used in both classes
 
     private T data;
-    private Node next;
+    private Node<T> next;
 
-    public Node(T data, Node nextNode)
+    public Node(T data, Node<T> nextNode)
     {
 
         this.data = data;
@@ -13,7 +13,7 @@ public class Node<T>
 
     }
     
-    public Node(Node nextNode)
+    public Node(Node<T> nextNode)
     {
         next = nextNode;
     }
@@ -35,7 +35,7 @@ public class Node<T>
     }
 
 
-    public Node getNext()
+    public Node<T> getNext()
     {
 
         return next;
@@ -43,7 +43,7 @@ public class Node<T>
     }
 
 
-    public void setNext(Node nextNode)
+    public void setNext(Node<T> nextNode)
     {
 
         next = nextNode;
