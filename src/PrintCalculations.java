@@ -21,6 +21,17 @@ public class PrintCalculations
         fileName = path;
 
     }
+    
+    public LinkedList addition(LinkedList fir, LinkedList sec) {
+        
+        LinkedList result = new LinkedList();
+        
+        while(fir.hasNext() && sec.hasNext())
+        return sec;
+        return result;
+        
+        
+    }
 
 
     /**
@@ -62,6 +73,7 @@ public class PrintCalculations
                         {
                             tempNum1 = stack.pop();
                             tempNum2 = stack.pop();
+                            
                             switch (rpn[i])
                             {
                                 case "+":

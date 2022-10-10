@@ -24,9 +24,6 @@ import java.util.Scanner;
 //  Name: Enk Naran, PID: enknaran
 public class BigNumArithmetic {
 
-    LinkedStack stck;
-    LinkedList list;
-    
     public static void main(String[] args) throws FileNotFoundException {
         if (args.length != 1) {
             throw new IllegalArgumentException(
@@ -48,13 +45,11 @@ public class BigNumArithmetic {
 
     public BigNumArithmetic() {
         // If I had any fields, I'd initialize them here
-        stck = new LinkedStack();
-        
         
     }
     
     // Note: the printCalculations() method was here before but is 
     // moved to PrintCalculations class for a separate parser implementation
     
-    
+   
 }
