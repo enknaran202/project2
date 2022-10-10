@@ -16,6 +16,7 @@ public class LinkedList
     private Node<Integer> low;
     private Node<Integer> high;
     private Node<Integer> cur;
+    private int size;
 
     /**
      * LinkedList constructor
@@ -26,6 +27,7 @@ public class LinkedList
         high = null;
         low = null;
         cur = null;
+        size = 0;
     }
 
 
@@ -47,6 +49,7 @@ public class LinkedList
         if (isEmpty())
         {
             cur = high = low = new Node<Integer>(number, null);
+            size++;
 
         }
 
@@ -54,6 +57,7 @@ public class LinkedList
         {
             Node<Integer> newNode = new Node<Integer>(number, low);
             cur = low = newNode;
+            size++;
         }
     }
 
@@ -71,11 +75,13 @@ public class LinkedList
         {
             high = low = new Node<Integer>(number, null);
             cur = low;
+            size++;
         }
         else
         {
             high.setNext(new Node<Integer>(number, null));
             high = high.getNext();
+            size++;
         }
     }
 
@@ -87,11 +93,13 @@ public class LinkedList
      * @param number
      *            The number to be entered into the list
      */
+    // Change to cut out excess zero's 00001234321 = 1234321
     private void inputString(String input)
     {
         for (int i = 0; i < input.length(); i++)
         {
             addLow(Integer.parseInt(String.valueOf(input.charAt(i))));
+            size++;
         }
     }
 
@@ -113,6 +121,12 @@ public class LinkedList
         Integer toReturn = cur.getData();
         cur = cur.getNext();
         return toReturn;
+    }
+    
+    
+    public int getSize()
+    {
+        return size;
     }
 
 
