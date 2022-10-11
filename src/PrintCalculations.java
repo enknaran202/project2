@@ -25,9 +25,53 @@ public class PrintCalculations
     public LinkedList addition(LinkedList fir, LinkedList sec) {
         
         LinkedList result = new LinkedList();
+        int counter = 0;
         
-        while(fir.hasNext() && sec.hasNext())
-        return sec;
+        while(counter != fir.getSize() || counter != sec.getSize()) { //fir.getSize() <= sec.getSize() || sec.getSize() <= fir.getSize()
+            
+            if(counter == fir.getSize()) {
+                
+                while(counter != sec.getSize()) {
+                    
+                    int singleOne = sec.next();
+                    result.addLow(singleOne);
+                }
+                
+            
+            }
+            
+            else if(counter == sec.getSize()) {
+                
+                while(counter != fir.getSize()) {
+                    
+                    int singleTwo = fir.next();
+                    result.addLow(singleTwo);
+                }
+                
+            
+            }
+            
+            else {
+                
+                int added = fir.next() + sec.next();
+                if(added >= 10) {
+                    
+                   
+                    result.addLow(added-10);
+                }
+                
+                else {
+                    
+                    result.addLow(added);
+                    
+                }
+            }
+            
+            
+            counter++;
+            
+        }
+        
         return result;
         
         
