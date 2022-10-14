@@ -138,57 +138,6 @@ public class PrintCalculations {
         return result;
 
     }
-    
-    public LinkedList multiply(LinkedList num1, LinkedList num2)
-    {
-        // !QUESTION! Does the order matter? If one is longer than the other
-        // Would it be faster if one was on top and the other was on the bottom?
-        LinkedList toReturn = null;
-        num2.resetCurrent();
-        int curNum2;
-        int curNum1;
-        int multiplied = 0;
-        int carry = 0;
-        LinkedStack saveMults = new LinkedStack();
-        // gets the current number to multiply with the first list
-        for(int i = 0; i < num2.getSize(); i++)
-        {
-            // Create a new List to save each multiplication
-            toReturn = new LinkedList();
-            // reset the pointer of the first list
-            num1.resetCurrent();
-            carry = 0;
-            // saves the cur number
-            curNum2 = num2.next();
-            // Adds zeros if we are using higher power numbers
-            for(int k = 0; k < i; k++)
-            {
-                toReturn.addHigh(0);
-            }
-            for(int j = 0; j < num1.getSize(); j++)
-            {
-                curNum1 = num1.next();
-                multiplied = (curNum1 * curNum2) + carry;
-                // if the multiplication results in a number that needs to be carried
-                if (multiplied < 9)
-                {
-                    // add the first digit to the list
-                    toReturn.addHigh(multiplied % 10);
-                    // save the carry for the next multiplication
-                    carry = multiplied / 10;
-                }
-                else
-                {
-                    toReturn.addHigh(multiplied);
-                }
-            }
-            // save the resulting list in a stack to be added later
-            saveMults.push(toReturn);
-        }
-        
-        // add all the numbers in this stack together
-        return toReturn;
-    }
 
 
     /**
