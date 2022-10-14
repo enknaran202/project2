@@ -33,6 +33,10 @@ public class LinkedList
 
     public LinkedList(String input)
     {
+        high = null;
+        low = null;
+        cur = null;
+        size = 0;
         inputString(input);
     }
 
