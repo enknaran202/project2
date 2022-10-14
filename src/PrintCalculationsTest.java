@@ -22,6 +22,21 @@ public class PrintCalculationsTest extends TestCase
         test = new PrintCalculations("SampleInput");
 
     }
+    
+    public void testAddtion() {
+        
+        
+    }
+    
+    public void testMultiply() {
+        
+        
+    }
+    
+    public void testIsValid() {
+        
+        
+    }
 
 
     public void testPrintCalculations() throws FileNotFoundException
