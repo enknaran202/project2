@@ -34,14 +34,6 @@ public class PrintCalculations
         int counter = 0;
         int added = 0;
 
-        if (!fir.isEmpty() && !sec.isEmpty())
-        { // Is this necessary and can
-          // this be tested accordingly
-          // without null issues?
-
-            return null;
-
-        }
 
         // Next part is to figure out how to traverse both lists at the same
         // time and identify when either or has "ran out" before the other
@@ -67,8 +59,8 @@ public class PrintCalculations
                         if (added == 10)
                         {
 
-                            result.addLow(added - 10);
-                            carry.addLow(1); // structure to carry ones, need a
+                            result.addHigh(added - 10);
+                            carry.addHigh(1); // structure to carry ones, need a
                                              // way to add and delete as
                                              // necessary
 
@@ -76,8 +68,12 @@ public class PrintCalculations
                             // (think its covered but check?)
                         }
                     }
+                    else {
+                        
+                        result.addHigh(added);
+                        
+                    }
 
-                    result.addLow(added);
                     counter++;
                 }
 
@@ -99,16 +95,21 @@ public class PrintCalculations
                         if (added == 10)
                         {
 
-                            result.addLow(added - 10);
-                            carry.addLow(1); // structure to carry ones, need a
+                            result.addHigh(added - 10);
+                            carry.addHigh(1); // structure to carry ones, need a
                                              // way to add and delete as
                                              // necessary
 
                             // what about situation if both sizes equal????
-                            // (think its covered but check?)
+                            // (think its covered but check?)  NOPE
                         }
                     }
-                    result.addLow(added);
+                    
+                    else {
+                        
+                        result.addHigh(added);
+                    }
+                    
                     counter++;
                 }
 
@@ -129,8 +130,8 @@ public class PrintCalculations
                 if (added >= 10)
                 {
 
-                    result.addLow(added - 10);
-                    carry.addLow(1); // structure to carry ones, need a way to
+                    result.addHigh(added - 10);
+                    carry.addHigh(1); // structure to carry ones, need a way to
                                      // add and delete as necessary
 
                     // what about situation if both sizes equal???? (think its
@@ -140,7 +141,7 @@ public class PrintCalculations
                 else
                 {
 
-                    result.addLow(added);
+                    result.addHigh(added);
 
                 }
             }
@@ -148,7 +149,16 @@ public class PrintCalculations
             counter++;
 
         }
+        
+        if(!carry.isEmpty()) {
+            
+           carry.clear();
+           result.addHigh(1);
+           
+        }
 
+        fir.resetCurrent();
+        sec.resetCurrent();
         return result;
 
     }
@@ -217,6 +227,31 @@ public class PrintCalculations
         // add all the numbers in this stack together
         toReturn = saveMults.pop();
         return toReturn;
+    }
+    
+    public LinkedList exponentiation(LinkedList x, int n) {
+        
+        LinkedList result = new LinkedList();
+        
+        if(n == 0) {
+            
+            result.addHigh(1);
+            return result;
+            
+        }
+        else if(n == 1) {
+            
+            result = x;
+            return result;
+            
+        }
+        else {
+            
+            
+        }
+        
+        return result;
+        
     }
 
 
