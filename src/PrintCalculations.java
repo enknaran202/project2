@@ -247,6 +247,14 @@ public class PrintCalculations
         }
         else {
             
+            if(n % 2 == 1) {
+                
+                
+            }
+            else {
+                
+                
+            }
             
         }
         
