@@ -27,54 +27,67 @@ public class PrintCalculationsTest extends TestCase
 
         test = new PrintCalculations("SampleInput");
         
+        //1234
         test1 = new LinkedList();
         test1.addLow(1);
         test1.addLow(2);
         test1.addLow(3);
         test1.addLow(4);
         
+        //4321
         test2 = new LinkedList();
         test2.addLow(4);
         test2.addLow(3);
         test2.addLow(2);
         test2.addLow(1);
         
+        //9999
         test3 = new LinkedList();
         test3.addLow(9);
         test3.addLow(9);
         test3.addLow(9);
         test3.addLow(9);
         
+        //599
         test4 = new LinkedList();
         test4.addLow(5);
         test4.addLow(9);
         test4.addLow(9);
         
+        //4936000
         test5 = new LinkedList();
+        test5.addLow(4);
+        test5.addLow(9);
+        test5.addLow(3);
+        test5.addLow(6);
+        test5.addLow(0);
+        test5.addLow(0);
+        test5.addLow(0);
+        
+        //370200
         test6 = new LinkedList();
+        test6.addLow(3);
+        test6.addLow(7);
+        test6.addLow(0);
+        test6.addLow(2);
+        test6.addLow(0);
+        test6.addLow(0);
 
     }
     
     public void testAddtion() {
-        
-        
-        
         assertEquals("5555", test.addition(test1, test2).toString());
         assertEquals("5555", test.addition(test2, test1).toString());
         assertEquals("11233", test.addition(test1, test3).toString());
         assertEquals("11233", test.addition(test3, test1).toString());
-        assertEquals("10598", test.addition(test3, test4)); // The issue is when it hits the size at the end so when one of the two sizes are not the same
-        //assertEquals("10598", test.addition(test4, test3));
-        
-        
-       
-        
-        
+        assertEquals("10598", test.addition(test3, test4).toString()); // The issue is when it hits the size at the end so when one of the two sizes are not the same
+        assertEquals("10598", test.addition(test4, test3).toString());
+        assertEquals("5306200", test.addition(test5, test6).toString());
     }
     
     public void testMultiply() {
-        
-        
+        assertEquals("5332114", test.multiply(test1, test2).toString());
+        assertEquals("5332114", test.multiply(test2, test1).toString());
     }
     
     public void testIsValid() {

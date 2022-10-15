@@ -173,6 +173,7 @@ public class PrintCalculations
         // !QUESTION! Does the order matter? If one is longer than the other
         // Would it be faster if one was on top and the other was on the bottom?
         LinkedList toReturn = null;
+        num1.resetCurrent();
         num2.resetCurrent();
         int curNum2;
         int curNum1;
@@ -198,11 +199,13 @@ public class PrintCalculations
             }
             for (int j = 0; j < num1.getSize(); j++)
             {
+                
                 curNum1 = num1.next();
                 multiplied = (curNum1 * curNum2) + carry;
+                carry = 0;
                 // if the multiplication results in a number that needs to be
                 // carried
-                if (multiplied < 9)
+                if (multiplied > 9)
                 {
                     // add the first digit to the list
                     toReturn.addHigh(multiplied % 10);
