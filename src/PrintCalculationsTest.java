@@ -22,6 +22,8 @@ public class PrintCalculationsTest extends TestCase
     private LinkedList test5;
     private LinkedList test6;
     private LinkedList test0;
+    private LinkedList power1;
+    private LinkedList power2;
 
     public void setUp()
     {
@@ -76,7 +78,12 @@ public class PrintCalculationsTest extends TestCase
         
         test0 = new LinkedList();
         test0.addLow(0);
+        
+        power1 = new LinkedList();
+        power1.addLow(1);
 
+        power2 = new LinkedList();
+        power2.addLow(2);
     }
     
     public void testAddtion() {
@@ -90,20 +97,26 @@ public class PrintCalculationsTest extends TestCase
         assertEquals("4936000", test.addition(test5, test0).toString());
     }
     
-    public void testMultiply() {
+    public void testMultiply() 
+    {
         assertEquals("5332114", test.multiply(test1, test2).toString());
         assertEquals("5332114", test.multiply(test2, test1).toString());
         assertEquals("1827307200000", test.multiply(test5, test6).toString());
         assertEquals("1827307200000", test.multiply(test6, test5).toString());
         assertEquals("6091024000", test.multiply(test5, test1).toString());
         assertEquals("0", test.multiply(test5, test0).toString());
-        
-        
-        
+
     }
     
-    public void testExponentiation() {
-        
+    public void testExponentiation() 
+    {
+        assertEquals("1", test.exponentiation(test5, test0).toString());
+        assertEquals("4936000", test.exponentiation(test5, power1).toString());
+        assertEquals("1522756", test.exponentiation(test1, power2).toString());
+        power1.addLow(1);
+        //power1 = 11 now
+        assertEquals("2048", test.exponentiation(power2, power1).toString());
+        assertEquals("10103381606301936187653160695875584", test.exponentiation(test1, power1).toString());
         
     }
     
