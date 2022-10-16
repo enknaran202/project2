@@ -80,7 +80,7 @@ public class PrintCalculationsTest extends TestCase
         assertEquals("5555", test.addition(test2, test1).toString());
         assertEquals("11233", test.addition(test1, test3).toString());
         assertEquals("11233", test.addition(test3, test1).toString());
-        assertEquals("10598", test.addition(test3, test4).toString()); // The issue is when it hits the size at the end so when one of the two sizes are not the same
+        assertEquals("10598", test.addition(test3, test4).toString()); 
         assertEquals("10598", test.addition(test4, test3).toString());
         assertEquals("5306200", test.addition(test5, test6).toString());
     }
@@ -88,6 +88,11 @@ public class PrintCalculationsTest extends TestCase
     public void testMultiply() {
         assertEquals("5332114", test.multiply(test1, test2).toString());
         assertEquals("5332114", test.multiply(test2, test1).toString());
+    }
+    
+    public void testExponentiation() {
+        
+        
     }
     
     public void testIsValid() {

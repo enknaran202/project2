@@ -7,16 +7,14 @@ import java.io.IOException;
  * 
  * 
  */
-public class PrintCalculations
-{
+public class PrintCalculations {
     private String fileName;
 
     /**
      * 
      * 
      */
-    public PrintCalculations(String path)
-    {
+    public PrintCalculations(String path) {
 
         fileName = path;
 
@@ -26,52 +24,52 @@ public class PrintCalculations
     // Note: This is presuming that the Linked List data structure is putting in
     // the number nodes backwards like instead of 1234
     // it would be 4321
-    public LinkedList addition(LinkedList fir, LinkedList sec)
-    {
+    public LinkedList addition(LinkedList fir, LinkedList sec) {
         // we check for leading zeros before calling this method
         LinkedList result = new LinkedList();
         LinkedList carry = new LinkedList();
         int counter = 0;
         int added = 0;
 
-
         // Next part is to figure out how to traverse both lists at the same
         // time and identify when either or has "ran out" before the other
         // Should i create a seperate structure to "hold carries?"
-        while (counter <= fir.getSize() || counter <= sec.getSize())
-        {
+        while (counter <= fir.getSize() || counter <= sec.getSize()) {
 
             added = 0; // reset for each single digit addition
 
-            if (counter == fir.getSize())
-            {
+            if (counter == fir.getSize()) {
 
-                while (counter != sec.getSize())
-                {
+                while (counter != sec.getSize()) {
 
                     added = sec.next();
 
-                    if (!carry.isEmpty())
-                    {
+                    if (!carry.isEmpty()) {
 
                         added = added + 1;
                         carry.clear();
-                        if (added == 10)
-                        {
+                        if (added == 10) {
 
                             result.addHigh(added - 10);
                             carry.addHigh(1); // structure to carry ones, need a
-                                             // way to add and delete as
-                                             // necessary
+                                              // way to add and delete as
+                                              // necessary
 
                             // what about situation if both sizes equal????
                             // (think its covered but check?)
                         }
+
+                        else {
+
+                            result.addHigh(added);
+
+                        }
                     }
+
                     else {
-                        
+
                         result.addHigh(added);
-                        
+
                     }
 
                     counter++;
@@ -79,67 +77,66 @@ public class PrintCalculations
 
             }
 
-            else if (counter == sec.getSize())
-            {
+            else if (counter == sec.getSize()) {
 
-                while (counter != fir.getSize())
-                {
+                while (counter != fir.getSize()) {
 
                     added = fir.next();
 
-                    if (!carry.isEmpty())
-                    {
+                    if (!carry.isEmpty()) {
 
                         added = added + 1;
                         carry.clear();
-                        if (added == 10)
-                        {
+                        if (added == 10) {
 
                             result.addHigh(added - 10);
                             carry.addHigh(1); // structure to carry ones, need a
-                                             // way to add and delete as
-                                             // necessary
+                                              // way to add and delete as
+                                              // necessary
 
                             // what about situation if both sizes equal????
-                            // (think its covered but check?)  NOPE
+                            // (think its covered but check?) NOPE
                         }
+
+                        else {
+
+                            result.addHigh(added);
+
+                        }
+
                     }
-                    
+
                     else {
-                        
+
                         result.addHigh(added);
                     }
-                    
+
                     counter++;
                 }
 
             }
 
-            else
-            {
+            else {
 
                 added = fir.next() + sec.next();
-                if (!carry.isEmpty())
-                {
+                if (!carry.isEmpty()) {
 
                     added = added + 1;
                     carry.clear();
 
                 }
 
-                if (added >= 10)
-                {
+                if (added >= 10) {
 
                     result.addHigh(added - 10);
                     carry.addHigh(1); // structure to carry ones, need a way to
-                                     // add and delete as necessary
+                                      // add and delete as necessary
 
                     // what about situation if both sizes equal???? (think its
                     // covered but check?)
                 }
 
-                else
-                {
+                else {
 
                     result.addHigh(added);
 
@@ -149,12 +146,12 @@ public class PrintCalculations
             counter++;
 
         }
-        
-        if(!carry.isEmpty()) {
-            
-           carry.clear();
-           result.addHigh(1);
-           
+
+        if (!carry.isEmpty()) {
+
+            carry.clear();
+            result.addHigh(1);
+
         }
 
         fir.resetCurrent();
@@ -168,8 +165,7 @@ public class PrintCalculations
      * 
      * 
      */
-    public LinkedList multiply(LinkedList num1, LinkedList num2)
-    {
+    public LinkedList multiply(LinkedList num1, LinkedList num2) {
         // !QUESTION! Does the order matter? If one is longer than the other
         // Would it be faster if one was on top and the other was on the bottom?
         LinkedList toReturn = null;
@@ -183,8 +179,7 @@ public class PrintCalculations
         LinkedList addTemp2 = null;
         LinkedStack saveMults = new LinkedStack();
         // gets the current number to multiply with the first list
-        for (int i = 0; i < num2.getSize(); i++)
-        {
+        for (int i = 0; i < num2.getSize(); i++) {
             // Create a new List to save each multiplication
             toReturn = new LinkedList();
             // reset the pointer of the first list
@@ -193,27 +188,23 @@ public class PrintCalculations
             // saves the cur number
             curNum2 = num2.next();
             // Adds zeros if we are using higher power numbers
-            for (int k = 0; k < i; k++)
-            {
+            for (int k = 0; k < i; k++) {
                 toReturn.addHigh(0);
             }
-            for (int j = 0; j < num1.getSize(); j++)
-            {
-                
+            for (int j = 0; j < num1.getSize(); j++) {
+
                 curNum1 = num1.next();
                 multiplied = (curNum1 * curNum2) + carry;
                 carry = 0;
                 // if the multiplication results in a number that needs to be
                 // carried
-                if (multiplied > 9)
-                {
+                if (multiplied > 9) {
                     // add the first digit to the list
                     toReturn.addHigh(multiplied % 10);
                     // save the carry for the next multiplication
                     carry = multiplied / 10;
                 }
-                else
-                {
+                else {
                     toReturn.addHigh(multiplied);
                 }
             }
@@ -221,8 +212,7 @@ public class PrintCalculations
             saveMults.push(toReturn);
         }
 
-        while (saveMults.size() > 1)
-        {
+        while (saveMults.size() > 1) {
             addTemp1 = saveMults.pop();
             addTemp2 = saveMults.pop();
             saveMults.push(addition(addTemp1, addTemp2));
@@ -231,38 +221,37 @@ public class PrintCalculations
         toReturn = saveMults.pop();
         return toReturn;
     }
-    
+
+
     public LinkedList exponentiation(LinkedList x, int n) {
-        
+
         LinkedList result = new LinkedList();
-        
-        if(n == 0) {
-            
+
+        if (n == 0) {
+
             result.addHigh(1);
             return result;
-            
+
         }
-        else if(n == 1) {
-            
+        else if (n == 1) {
+
             result = x;
             return result;
-            
+
         }
         else {
-            
-            if(n % 2 == 1) {
-                
-                
+
+            if (n % 2 == 1) {
+
             }
             else {
-                
-                
+
             }
-            
+
         }
-        
+
         return result;
-        
+
     }
 
 
@@ -270,45 +259,37 @@ public class PrintCalculations
      * 
      * 
      */
-    public void printCalculations() throws FileNotFoundException
-    {
+    public void printCalculations() throws FileNotFoundException {
 
         Scanner scanIn = new Scanner(new File(fileName));
         LinkedList tempNum1 = null;
         LinkedList tempNum2 = null;
         LinkedStack stack = new LinkedStack();
 
-        while (scanIn.hasNext())
-        {
+        while (scanIn.hasNext()) {
             String line = scanIn.nextLine();
             if (!line.isEmpty() || !line.trim().equals("") || !line.trim()
-                .equals("\n"))
-            { // possible fix to lines with spaces being
-              // included
-              // takes out extra spaces between strings
+                .equals("\n")) { // possible fix to lines with spaces being
+                                 // included
+                                 // takes out extra spaces between strings
                 line = line.trim().replaceAll(" +", " ");
                 String[] rpn = line.split(" ");
                 // Send the array to a method to ensure correct # of numbers and
-                if (isValid(rpn))
-                {
-                    for (int i = 0; i < rpn.length; i++)
-                    {
+                if (isValid(rpn)) {
+                    for (int i = 0; i < rpn.length; i++) {
                         // if the string is a number
                         // put in the linked list
                         // and push the LL onto the stack
-                        if (Character.isDigit(rpn[i].charAt(0)))
-                        {
+                        if (Character.isDigit(rpn[i].charAt(0))) {
                             tempNum1 = new LinkedList(rpn[i]);
                             stack.push(tempNum1);
                         }
                         // if the string is a command
-                        else
-                        {
+                        else {
                             tempNum1 = stack.pop();
                             tempNum2 = stack.pop();
 
-                            switch (rpn[i])
-                            {
+                            switch (rpn[i]) {
                                 case "+":
                                     // add tempNum1 and tempNum2
                                     // push onto stack
@@ -331,8 +312,7 @@ public class PrintCalculations
                         }
                     }
                 }
-                else
-                { // if it does not fit RPN print with only =
+                else { // if it does not fit RPN print with only =
                     System.out.println(line + " =");
                 }
             }
@@ -349,26 +329,20 @@ public class PrintCalculations
      *         is or is not proper
      * 
      */
-    public boolean isValid(String[] input)
-    {
+    public boolean isValid(String[] input) {
         int stackSize = 0;
-        for (int i = 0; i < input.length; i++)
-        {
-            if (Character.isDigit(input[i].charAt(0)))
-            {
+        for (int i = 0; i < input.length; i++) {
+            if (Character.isDigit(input[i].charAt(0))) {
                 stackSize++;
             }
-            else
-            {
+            else {
                 stackSize--;
             }
-            if (stackSize <= 0)
-            {
+            if (stackSize <= 0) {
                 return false;
             }
         }
-        if (stackSize == 1)
-        {
+        if (stackSize == 1) {
             return true;
         }
         return false;
