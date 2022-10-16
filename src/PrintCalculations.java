@@ -20,145 +20,46 @@ public class PrintCalculations {
 
     }
 
-
-    // Note: This is presuming that the Linked List data structure is putting in
-    // the number nodes backwards like instead of 1234
-    // it would be 4321
+ 
     public LinkedList addition(LinkedList fir, LinkedList sec) {
-        // we check for leading zeros before calling this method
+        
         LinkedList result = new LinkedList();
-        LinkedList carry = new LinkedList();
-        int counter = 0;
-        int added = 0;
-
-        // Next part is to figure out how to traverse both lists at the same
-        // time and identify when either or has "ran out" before the other
-        // Should i create a seperate structure to "hold carries?"
-        while (counter <= fir.getSize() || counter <= sec.getSize()) {
-
-            added = 0; // reset for each single digit addition
-
-            if (counter == fir.getSize()) {
-
-                while (counter != sec.getSize()) {
-
-                    added = sec.next();
-
-                    if (!carry.isEmpty()) {
-
-                        added = added + 1;
-                        carry.clear();
-                        if (added == 10) {
-
-                            result.addHigh(added - 10);
-                            carry.addHigh(1); // structure to carry ones, need a
-                                              // way to add and delete as
-                                              // necessary
-
-                            // what about situation if both sizes equal????
-                            // (think its covered but check?)
-                        }
-
-                        else {
-
-                            result.addHigh(added);
-
-                        }
-                    }
-
-                    else {
-
-                        result.addHigh(added);
-
-                    }
-
-                    counter++;
-                }
-
+        
+        int carry = 0;
+        
+        while(fir.hasNext() || sec.hasNext()) {
+            
+            int summation = carry;
+            
+            if(fir.hasNext()) {
+                
+                summation += fir.next();
+                
             }
-
-            else if (counter == sec.getSize()) {
-
-                while (counter != fir.getSize()) {
-
-                    added = fir.next();
-
-                    if (!carry.isEmpty()) {
-
-                        added = added + 1;
-                        carry.clear();
-                        if (added == 10) {
-
-                            result.addHigh(added - 10);
-                            carry.addHigh(1); // structure to carry ones, need a
-                                              // way to add and delete as
-                                              // necessary
-
-                            // what about situation if both sizes equal????
-                            // (think its covered but check?) NOPE
-                        }
-
-                        else {
-
-                            result.addHigh(added);
-
-                        }
-
-                    }
-
-                    else {
-
-                        result.addHigh(added);
-                    }
-
-                    counter++;
-                }
-
+            
+            if(sec.hasNext()) {
+                
+                summation += sec.next();
+                
             }
-
-            else {
-
-                added = fir.next() + sec.next();
-                if (!carry.isEmpty()) {
-
-                    added = added + 1;
-                    carry.clear();
-
-                }
-
-                if (added >= 10) {
-
-                    result.addHigh(added - 10);
-                    carry.addHigh(1); // structure to carry ones, need a way to
-                                      // add and delete as necessary
-
-                    // what about situation if both sizes equal???? (think its
-                    // covered but check?)
-                }
-
-                else {
-
-                    result.addHigh(added);
-
-                }
-            }
-
-            counter++;
-
+            
+            result.addHigh(summation % 10);
+            
+            carry = summation/10;
+            
+            
         }
-
-        if (!carry.isEmpty()) {
-
-            carry.clear();
-            result.addHigh(1);
-
+        
+        if(carry > 0) {
+            
+            result.addHigh(carry);
         }
-
+        
         fir.resetCurrent();
         sec.resetCurrent();
         return result;
-
     }
+    
 
 
     /**
@@ -354,3 +255,142 @@ public class PrintCalculations {
     }
 
 }
+
+// Note: This is presuming that the Linked List data structure is putting in
+// the number nodes backwards like instead of 1234
+// it would be 4321
+/*   public LinkedList addition(LinkedList fir, LinkedList sec) {
+    // we check for leading zeros before calling this method
+    LinkedList result = new LinkedList();
+    LinkedList carry = new LinkedList();
+    int counter = 0;
+    int added = 0;
+
+    // Next part is to figure out how to traverse both lists at the same
+    // time and identify when either or has "ran out" before the other
+    // Should i create a seperate structure to "hold carries?"
+    while (counter <= fir.getSize() || counter <= sec.getSize()) {
+
+        added = 0; // reset for each single digit addition
+
+        if (counter == fir.getSize()) {
+
+            while (counter != sec.getSize()) {
+
+                added = sec.next();
+
+                if (!carry.isEmpty()) {
+
+                    added = added + 1;
+                    carry.clear();
+                    if (added == 10) {
+
+                        result.addHigh(added - 10);
+                        carry.addHigh(1); // structure to carry ones, need a
+                                          // way to add and delete as
+                                          // necessary
+
+                        // what about situation if both sizes equal????
+                        // (think its covered but check?)
+                    }
+
+                    else {
+
+                        result.addHigh(added);
+
+                    }
+                }
+
+                else {
+
+                    result.addHigh(added);
+
+                }
+
+                counter++;
+            }
+
+        }
+
+        else if (counter == sec.getSize()) {
+
+            while (counter != fir.getSize()) {
+
+                added = fir.next();
+
+                if (!carry.isEmpty()) {
+
+                    added = added + 1;
+                    carry.clear();
+                    if (added == 10) {
+
+                        result.addHigh(added - 10);
+                        carry.addHigh(1); // structure to carry ones, need a
+                                          // way to add and delete as
+                                          // necessary
+
+                        // what about situation if both sizes equal????
+                        // (think its covered but check?) NOPE
+                    }
+
+                    else {
+
+                        result.addHigh(added);
+
+                    }
+
+                }
+
+                else {
+
+                    result.addHigh(added);
+                }
+
+                counter++;
+            }
+
+        }
+
+        else {
+
+            added = fir.next() + sec.next();
+            if (!carry.isEmpty()) {
+
+                added = added + 1;
+                carry.clear();
+
+            }
+
+            if (added >= 10) {
+
+                result.addHigh(added - 10);
+                carry.addHigh(1); // structure to carry ones, need a way to
+                                  // add and delete as necessary
+
+                // what about situation if both sizes equal???? (think its
+                // covered but check?)
+            }
+
+            else {
+
+                result.addHigh(added);
+
+            }
+        }
+
+        counter++;
+
+    }
+
+    if (!carry.isEmpty()) {
+
+        carry.clear();
+        result.addHigh(1);
+
+    }
+
+    fir.resetCurrent();
+    sec.resetCurrent();
+    return result;
+
+} */

@@ -22,11 +22,13 @@ public class PrintCalculationsTest extends TestCase
     private LinkedList test5;
     private LinkedList test6;
     private LinkedList test0;
+    private LinkedList test7;
+    private LinkedList test8;
 
     public void setUp()
     {
 
-        test = new PrintCalculations("SampleInput");
+        test = new PrintCalculations("SampleInput.txt");
         
         //1234
         test1 = new LinkedList();
@@ -76,7 +78,18 @@ public class PrintCalculationsTest extends TestCase
         
         test0 = new LinkedList();
         test0.addLow(0);
+        
+        test7 = new LinkedList();
+        test7.addLow(9);
+        test7.addLow(9);
+        test7.addLow(9);
+        test7.addLow(9);
+        test7.addLow(9);
+        test7.addLow(9);
+        test7.addLow(9);
 
+        test8 = new LinkedList();
+        test8.addLow(1);
     }
     
     public void testAddtion() {
@@ -88,6 +101,11 @@ public class PrintCalculationsTest extends TestCase
         assertEquals("10598", test.addition(test4, test3).toString());
         assertEquals("5306200", test.addition(test5, test6).toString());
         assertEquals("4936000", test.addition(test5, test0).toString());
+        assertEquals("10000000", test.addition(test7, test8).toString());
+        assertEquals("10000000", test.addition(test8, test7).toString());
+        assertEquals("9999999", test.addition(test7, test0).toString());
+        assertEquals("9999999", test.addition(test0, test7).toString());
+        
     }
     
     public void testMultiply() {
@@ -113,7 +131,7 @@ public class PrintCalculationsTest extends TestCase
     }
 
 
-   /* public void testPrintCalculations() throws FileNotFoundException
+    public void testPrintCalculations() throws FileNotFoundException
     {
 
         PrintStreamWithHistory sysout = systemOut();
@@ -128,6 +146,6 @@ public class PrintCalculationsTest extends TestCase
                 + "3432 3333 9999 + * ^ * * 6666 + =", sysout.getHistory());
         sysout.clearHistory();
 
-    } */
+    } 
 
 }
