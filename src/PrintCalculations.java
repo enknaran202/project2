@@ -220,10 +220,12 @@ public class PrintCalculations
                                     break;
                                 case "*":
                                     // multiply tempNum1 and 2
+                                    stack.push(multiply(tempNum1, tempNum2));
                                     // push onto stack
                                     break;
                                 case "^":
                                     // do power thing 1 and 2
+                                    stack.push(exponentiation(tempNum1, tempNum2));
                                     // push onto stack
                                     break;
                                 default:
