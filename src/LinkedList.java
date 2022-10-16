@@ -106,6 +106,26 @@ public class LinkedList
             size++;
         }
     }
+    
+    /**
+     * Removes excess zero's. 0000 => 0
+     * 
+     */
+    public void removeHighZeros()
+    {
+        Node<Integer> tempCur = low;
+        while(high != low && high.getData() == 0)
+        {
+            tempCur = low;
+            while(tempCur.getNext() != high)
+            {
+                tempCur = tempCur.getNext();
+            }
+            high = tempCur;
+            tempCur.setNext(null);
+            size--;
+        }
+    }
 
 
     /**

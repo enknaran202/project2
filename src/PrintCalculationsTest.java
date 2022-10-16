@@ -21,6 +21,7 @@ public class PrintCalculationsTest extends TestCase
     private LinkedList test4;
     private LinkedList test5;
     private LinkedList test6;
+    private LinkedList test0;
 
     public void setUp()
     {
@@ -72,6 +73,9 @@ public class PrintCalculationsTest extends TestCase
         test6.addLow(2);
         test6.addLow(0);
         test6.addLow(0);
+        
+        test0 = new LinkedList();
+        test0.addLow(0);
 
     }
     
@@ -83,11 +87,19 @@ public class PrintCalculationsTest extends TestCase
         assertEquals("10598", test.addition(test3, test4).toString()); 
         assertEquals("10598", test.addition(test4, test3).toString());
         assertEquals("5306200", test.addition(test5, test6).toString());
+        assertEquals("4936000", test.addition(test5, test0).toString());
     }
     
     public void testMultiply() {
         assertEquals("5332114", test.multiply(test1, test2).toString());
         assertEquals("5332114", test.multiply(test2, test1).toString());
+        assertEquals("1827307200000", test.multiply(test5, test6).toString());
+        assertEquals("1827307200000", test.multiply(test6, test5).toString());
+        assertEquals("6091024000", test.multiply(test5, test1).toString());
+        assertEquals("0", test.multiply(test5, test0).toString());
+        
+        
+        
     }
     
     public void testExponentiation() {

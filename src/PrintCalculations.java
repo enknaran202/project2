@@ -203,6 +203,10 @@ public class PrintCalculations {
                     toReturn.addHigh(multiplied % 10);
                     // save the carry for the next multiplication
                     carry = multiplied / 10;
+                    if(j == num1.getSize() - 1)
+                    {
+                        toReturn.addHigh(carry);
+                    }
                 }
                 else {
                     toReturn.addHigh(multiplied);
@@ -210,6 +214,7 @@ public class PrintCalculations {
             }
             // save the resulting list in a stack to be added later
             saveMults.push(toReturn);
+            
         }
 
         while (saveMults.size() > 1) {

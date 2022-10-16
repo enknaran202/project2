@@ -14,6 +14,7 @@ public class LinkedStack
     public void push(LinkedList newNum)
     {
         // doublecheck to see if it works
+        newNum.removeHighZeros();
         top.setNext(new Node<LinkedList>(newNum, top.getNext()));
         size++;
 
