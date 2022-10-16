@@ -1,5 +1,5 @@
 
-class Node<T>
+ public class Node<T>
 { // Used in both classes
 
     private T data;
