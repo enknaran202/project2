@@ -54,6 +54,7 @@ public class LinkedStack
             toReturn = (LinkedList)top.getData();
             top = (top.getNext());
             size--;
+        }
 
         return toReturn;
     }
