@@ -1,16 +1,16 @@
 import student.TestCase;
 
-//----------------------------------------------------------
+// ----------------------------------------------------------
 /**
-* NodeTest Class
-* Description: Test class for NodeTest object
-* 
-* @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
-* 
-*/
-public class NodeTest extends TestCase {
+ * NodeTest Class
+ * Description: Test class for NodeTest object
+ * 
+ * @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
+ * 
+ */
+public class NodeTest extends TestCase
+{
 
-    
     private Node<Integer> test1;
     private Node<Integer> test2;
     private Node<Integer> test3;
@@ -22,20 +22,22 @@ public class NodeTest extends TestCase {
      * Sets up test Node objects to be used
      * 
      */
-    public void setUp() {
+    public void setUp()
+    {
 
         test1 = new Node<Integer>(1, null);
         test3 = new Node<Integer>(3, null);
         test2 = new Node<Integer>(2, test3);
         test4 = new Node<Integer>(test1);
-        
+
     }
 
 
     /**
-     *  Tests getData
+     * Tests getData
      */
-    public void testGetData() {
+    public void testGetData()
+    {
 
         assertEquals(1, ((int)test1.getData()));
         assertEquals(2, ((int)test2.getData()));
@@ -45,15 +47,14 @@ public class NodeTest extends TestCase {
         Node<Integer> zero = new Node<Integer>(0, null);
         assertEquals(0, ((int)zero.getData()));
 
-
-
     }
 
 
     /**
      * tests setData
      */
-    public void testSetData() {
+    public void testSetData()
+    {
 
         assertEquals(1, ((int)test1.getData()));
         test1.setData(0);
@@ -70,8 +71,9 @@ public class NodeTest extends TestCase {
     /**
      * tests getNext
      */
-    public void testGetNext() {
-        
+    public void testGetNext()
+    {
+
         assertNull(test1.getNext());
         assertEquals(test1, test4.getNext());
         assertEquals(test3, test2.getNext());
@@ -82,8 +84,9 @@ public class NodeTest extends TestCase {
     /**
      * tests setNext
      */
-    public void testSetNext() {
-        
+    public void testSetNext()
+    {
+
         assertNull(test1.getNext());
         test1.setNext(test2);
         assertEquals(test2, test1.getNext());

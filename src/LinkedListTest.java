@@ -13,7 +13,9 @@ public class LinkedListTest extends TestCase
     private LinkedList list;
 
     /**
-     * 
+     * Sets up the test
+     * The list should be
+     * 1,2,3,4,5,6,7,8
      */
     public void setUp()
     {
@@ -30,7 +32,7 @@ public class LinkedListTest extends TestCase
 
 
     /**
-     * 
+     * Test addLow
      */
     public void testAddLow()
     {
@@ -41,7 +43,7 @@ public class LinkedListTest extends TestCase
 
 
     /**
-     * 
+     * Test addHigh
      */
     public void testAddHigh()
     {
@@ -52,7 +54,7 @@ public class LinkedListTest extends TestCase
 
 
     /**
-     * 
+     * test Next
      */
     public void testNext()
     {
@@ -81,7 +83,7 @@ public class LinkedListTest extends TestCase
 
 
     /**
-     * 
+     * Test hasNext
      */
     public void testHasNext()
     {
@@ -99,7 +101,7 @@ public class LinkedListTest extends TestCase
 
 
     /**
-     * 
+     * test resetCurrent
      */
     public void testResetCurrent()
     {
@@ -112,7 +114,7 @@ public class LinkedListTest extends TestCase
 
 
     /**
-     * 
+     * test isEmpty
      */
     public void testIsEmpty()
     {
@@ -125,7 +127,7 @@ public class LinkedListTest extends TestCase
 
 
     /**
-     * 
+     * test Clear
      */
     public void testClear()
     {
@@ -135,7 +137,7 @@ public class LinkedListTest extends TestCase
 
 
     /**
-     * 
+     * test toString
      */
     public void testToString()
     {
