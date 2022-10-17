@@ -4,8 +4,9 @@ import java.util.NoSuchElementException;
 /**
  * Linked list with access to end.
  * Able to input at the beginning and end of list.
- * Low -> node -> node -> node -> null <- High
- * 
+ * Low -> node -> node -> node -> null
+ * ....................High-^
+
  * @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
  * @version 10/1/2022
  * 
@@ -102,6 +103,7 @@ public class LinkedList
         for (int i = 0; i < input.length(); i++)
         {
             addLow(Integer.parseInt(String.valueOf(input.charAt(i))));
+            size++;
         }
     }
     
