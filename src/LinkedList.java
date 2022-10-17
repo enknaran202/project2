@@ -103,7 +103,6 @@ public class LinkedList
         for (int i = 0; i < input.length(); i++)
         {
             addLow(Integer.parseInt(String.valueOf(input.charAt(i))));
-            size++;
         }
     }
     

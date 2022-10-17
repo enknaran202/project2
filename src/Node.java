@@ -7,7 +7,7 @@ public class Node<T>
 
     public Node(T data, Node<T> nextNode)
     {
-
+        // this is what's causing the problems
         this.data = data;
         next = nextNode;
 

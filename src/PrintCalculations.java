@@ -64,6 +64,8 @@ public class PrintCalculations
         sec.resetCurrent();
         return result;
     }
+    
+    
     /**
      * 
      * 
