@@ -9,10 +9,14 @@ import student.TestCase;
  */
 public class LinkedStackTest extends TestCase
 {
-    
+    private LinkedStack test;
     public void setUp()
     {
-        
+        test = new LinkedStack();
+        test.push(new LinkedList("4"));
+        test.push(new LinkedList("3"));
+        test.push(new LinkedList("2"));
+        test.push(new LinkedList("1"));
     }
     
     public void testPush()

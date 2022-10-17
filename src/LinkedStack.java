@@ -7,7 +7,7 @@ public class LinkedStack
     public LinkedStack()
     {
         size = 0;
-        top = new Node<LinkedList>(null, null);
+        top = null;
     }
 
 
@@ -15,7 +15,7 @@ public class LinkedStack
     {
         // doublecheck to see if it works
         newNum.removeHighZeros();
-        top.setNext(new Node<LinkedList>(newNum, top.getNext()));
+        top = new Node<LinkedList>(newNum, top);
         size++;
 
     }
@@ -26,8 +26,8 @@ public class LinkedStack
         LinkedList toReturn = null;
         if (!isEmpty())
         {
-            toReturn = (LinkedList)top.getNext().getData();
-            top.setNext(top.getNext().getNext());
+            toReturn = (LinkedList)top.getData();
+            top = (top.getNext());
             size--;
         }
         return toReturn;
@@ -38,7 +38,7 @@ public class LinkedStack
     {
         if (!isEmpty())
         {
-            return (LinkedList)top.getNext().getData();
+            return (LinkedList)top.getData();
         }
         return null;
     }
@@ -46,7 +46,7 @@ public class LinkedStack
 
     public boolean isEmpty()
     {
-        return top.getNext() == null;
+        return top == null;
     }
 
 

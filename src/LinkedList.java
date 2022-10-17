@@ -5,7 +5,9 @@ import java.util.NoSuchElementException;
  * Linked list with access to end.
  * Able to input at the beginning and end of list.
  * Low -> node -> node -> node -> null
- * ....................High-^
+ * 
+ * High points to the last node in the list.
+ * 
 
  * @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
  * @version 10/1/2022

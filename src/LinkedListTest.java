@@ -2,10 +2,6 @@ import java.util.NoSuchElementException;
 import student.TestCase;
 
 /**
- * 
- */
-
-/**
  * Test for linked list
  * 
  * @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
