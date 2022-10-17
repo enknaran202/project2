@@ -5,8 +5,10 @@ import java.util.NoSuchElementException;
  * Linked list with access to end.
  * Able to input at the beginning and end of list.
  * Low -> node -> node -> node -> null
- * ....................High-^
-
+ * 
+ * High points to the last node in the list.
+ * 
+ * 
  * @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
  * @version 10/1/2022
  * 
@@ -31,6 +33,12 @@ public class LinkedList
     }
 
 
+    /**
+     * Creates a LinkedList from a string of a number
+     * 
+     * @param String
+     *            The number in string form to be converted to LL
+     */
     public LinkedList(String input)
     {
         high = null;
@@ -105,7 +113,8 @@ public class LinkedList
             addLow(Integer.parseInt(String.valueOf(input.charAt(i))));
         }
     }
-    
+
+
     /**
      * Removes excess zero's. 0000 => 0
      * 
@@ -113,10 +122,10 @@ public class LinkedList
     public void removeHighZeros()
     {
         Node<Integer> tempCur = low;
-        while(high != low && high.getData() == 0)
+        while (high != low && high.getData() == 0)
         {
             tempCur = low;
-            while(tempCur.getNext() != high)
+            while (tempCur.getNext() != high)
             {
                 tempCur = tempCur.getNext();
             }
@@ -145,8 +154,15 @@ public class LinkedList
         cur = cur.getNext();
         return toReturn;
     }
-    
-    
+
+
+    /**
+     * The size of the list
+     * 
+     * @return int
+     *         The size of the LinkedList
+     * 
+     */
     public int getSize()
     {
         return size;
@@ -205,7 +221,7 @@ public class LinkedList
      * Note: resets the current pointer to low
      * 
      * @return String
-     *         the list
+     *         the list in proper string form
      */
     public String toString()
     {
