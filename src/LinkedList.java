@@ -70,8 +70,7 @@ public class LinkedList
 
         else
         {
-            Node<Integer> newNode = new Node<Integer>(number, low);
-            low = newNode;
+            low = new Node<Integer>(number, low);
             cur = low;
             size++;
         }
