@@ -2,6 +2,8 @@
 /**
  * Classic generic node
  * 
+ * @param <T>
+ *            Generic version
  * @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
  * @version 10/17/2022
  * 
@@ -15,10 +17,10 @@ public class Node<T>
     /**
      * Node constructor
      * 
-     * @param T
+     * @param data
      *            The data to be stored in the node
      * 
-     * @param Node
+     * @param nextNode
      *            The node this one points to
      * 
      * 
@@ -35,7 +37,7 @@ public class Node<T>
     /**
      * Node Constructor
      * 
-     * @param Node
+     * @param nextNode
      *            The node this new node points to
      * 
      */
@@ -64,7 +66,7 @@ public class Node<T>
     /**
      * Changes the data in the node
      * 
-     * @param T
+     * @param newData
      *            The new data
      * 
      */
@@ -93,7 +95,7 @@ public class Node<T>
     /**
      * Changes the node this node points to
      * 
-     * @param Node
+     * @param nextNode
      *            The new node to point to
      * 
      */
