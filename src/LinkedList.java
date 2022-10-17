@@ -36,7 +36,7 @@ public class LinkedList
     /**
      * Creates a LinkedList from a string of a number
      * 
-     * @param String
+     * @param input
      *            The number in string form to be converted to LL
      */
     public LinkedList(String input)
@@ -60,7 +60,10 @@ public class LinkedList
     {
         if (isEmpty())
         {
-            cur = high = low = new Node<Integer>(number, null);
+
+            low = new Node<Integer>(number, null);
+            cur = low;
+            high = low;
             size++;
 
         }
@@ -68,7 +71,8 @@ public class LinkedList
         else
         {
             Node<Integer> newNode = new Node<Integer>(number, low);
-            cur = low = newNode;
+            low = newNode;
+            cur = low;
             size++;
         }
     }
@@ -85,7 +89,8 @@ public class LinkedList
     {
         if (isEmpty())
         {
-            high = low = new Node<Integer>(number, null);
+            low = new Node<Integer>(number, null);
+            high = low;
             cur = low;
             size++;
         }
