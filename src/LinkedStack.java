@@ -1,57 +1,52 @@
 
-public class LinkedStack
-{
+public class LinkedStack {
     private int size;
     private Node<LinkedList> top;
 
-    public LinkedStack()
-    {
+    public LinkedStack() {
         size = 0;
         top = new Node<LinkedList>(null, null);
     }
 
 
-    public void push(LinkedList newNum)
-    {
+    public void push(LinkedList newNum) {
         // doublecheck to see if it works
         newNum.removeHighZeros();
-        top.setNext(new Node<LinkedList>(newNum, top.getNext()));
+
+        top = new Node<LinkedList>(newNum, top);
         size++;
 
     }
 
 
-    public LinkedList pop()
-    {
-        LinkedList toReturn = null;
-        if (!isEmpty())
-        {
-            toReturn = (LinkedList)top.getNext().getData();
-            top.setNext(top.getNext().getNext());
-            size--;
+    public LinkedList pop() {
+        if (isEmpty()) {
+
+            return null;
         }
+
+        LinkedList toReturn = top.getData();
+        top = top.getNext();
+        size--;
+
         return toReturn;
     }
 
 
-    public LinkedList peek()
-    {
-        if (!isEmpty())
-        {
+    public LinkedList peek() {
+        if (!isEmpty()) {
             return (LinkedList)top.getNext().getData();
         }
         return null;
     }
 
 
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return top.getNext() == null;
     }
 
 
-    public int size()
-    {
+    public int size() {
         return size;
     }
 }
