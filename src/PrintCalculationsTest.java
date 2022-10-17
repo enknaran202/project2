@@ -23,12 +23,13 @@ public class PrintCalculationsTest extends TestCase
     private LinkedList test6;
     private LinkedList test0;
     private LinkedList test7;
-    private LinkedList test8;
+    private LinkedList testOne;
+    private LinkedList testTwo;
 
     public void setUp()
     {
 
-        test = new PrintCalculations("SampleInput.txt");
+        test = new PrintCalculations("SampleInput");
         
         //1234
         test1 = new LinkedList();
@@ -88,8 +89,11 @@ public class PrintCalculationsTest extends TestCase
         test7.addLow(9);
         test7.addLow(9);
 
-        test8 = new LinkedList();
-        test8.addLow(1);
+        testOne = new LinkedList();
+        testOne.addLow(1);
+        
+        testTwo = new LinkedList("2");
+        
     }
     
     public void testAddtion() {
@@ -101,8 +105,8 @@ public class PrintCalculationsTest extends TestCase
         assertEquals("10598", test.addition(test4, test3).toString());
         assertEquals("5306200", test.addition(test5, test6).toString());
         assertEquals("4936000", test.addition(test5, test0).toString());
-        assertEquals("10000000", test.addition(test7, test8).toString());
-        assertEquals("10000000", test.addition(test8, test7).toString());
+        assertEquals("10000000", test.addition(test7, testOne).toString());
+        assertEquals("10000000", test.addition(testOne, test7).toString());
         assertEquals("9999999", test.addition(test7, test0).toString());
         assertEquals("9999999", test.addition(test0, test7).toString());
         
@@ -120,18 +124,38 @@ public class PrintCalculationsTest extends TestCase
         
     }
     
-    public void testExponentiation() {
-        
-        
+    public void testExponentiation() 
+    {
+        assertEquals("1", test.exponentiation(test5, test0).toString());
+        assertEquals("4936000", test.exponentiation(test5, testOne).toString());
+        assertEquals("1522756", test.exponentiation(test1, testTwo).toString());
+        testOne.addLow(1);
+        //power1 = 11 now
+        assertEquals("2048", test.exponentiation(testTwo, testOne).toString());
+        assertEquals("10103381606301936187653160695875584", test.exponentiation(test1, testOne).toString());
+
     }
     
     public void testIsValid() {
         
-        
+        String[] toTest = new String[] {"000000056669777", "99999911111", "+", "352324012", "+", "03", "^", "555557778", "*"};
+        assertEquals(true, test.isValid(toTest));
+        toTest = new String[] {"99999999", "990001", "*", "01119111", "55565", "33333", "+", "*", "+", "88888888", "+"};
+        assertEquals(true, test.isValid(toTest));
+        toTest = new String[] {"9", "1", "+", "5", "*", "00000000", "+"};
+        assertEquals(true, test.isValid(toTest));
+        toTest = new String[] {"5555555", "333333", "5454353", "999999", "666666", "01", "^", "*", "*", "+"};
+        assertEquals(false, test.isValid(toTest));
+        toTest = new String[] {"5555555", "333333"};
+        assertEquals(false, test.isValid(toTest));
+        toTest = new String[] {"^", "*", "*", "+"};
+        assertEquals(false, test.isValid(toTest));
+        toTest = new String[] {"5555555", "333333", "^", "*", "*", "+"};
+        assertEquals(false, test.isValid(toTest));
     }
 
 
-    public void testPrintCalculations() throws FileNotFoundException
+   /* public void testPrintCalculations() throws FileNotFoundException
     {
 
         PrintStreamWithHistory sysout = systemOut();
@@ -146,6 +170,6 @@ public class PrintCalculationsTest extends TestCase
                 + "3432 3333 9999 + * ^ * * 6666 + =", sysout.getHistory());
         sysout.clearHistory();
 
-    } 
+    } */
 
 }
