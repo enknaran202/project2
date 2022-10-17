@@ -19,7 +19,7 @@ public class NodeTest extends TestCase {
     // ----------------------------------------------------------
     /**
      * 
-     * Description: Sets up test Node objects to be used
+     * Sets up test Node objects to be used
      * 
      */
     public void setUp() {
@@ -33,7 +33,7 @@ public class NodeTest extends TestCase {
 
 
     /**
-     * 
+     *  Tests getData
      */
     public void testGetData() {
 
@@ -51,7 +51,7 @@ public class NodeTest extends TestCase {
 
 
     /**
-     * 
+     * tests setData
      */
     public void testSetData() {
 
@@ -68,7 +68,7 @@ public class NodeTest extends TestCase {
 
 
     /**
-     * 
+     * tests getNext
      */
     public void testGetNext() {
         
@@ -80,7 +80,7 @@ public class NodeTest extends TestCase {
 
 
     /**
-     * 
+     * tests setNext
      */
     public void testSetNext() {
         
