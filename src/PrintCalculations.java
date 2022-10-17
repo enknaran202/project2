@@ -61,13 +61,7 @@ public class PrintCalculations {
         sec.resetCurrent();
         return result;
     }
-<<<<<<< HEAD
-    
-    
-=======
 
-
->>>>>>> branch 'master' of https://github.com/enknaran202/project2
     /**
      * 
      * 
