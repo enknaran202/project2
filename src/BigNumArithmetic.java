@@ -22,6 +22,12 @@ import java.util.Scanner;
 //   letter of this restriction.
 //  Name: Deep Datta, PID: ddeep21
 //  Name: Enk Naran, PID: enknaran
+
+/**
+ * @author Deep Datta, Enk Naran
+ * Description: The main method class that runs the whole program
+ *
+ */
 public class BigNumArithmetic {
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -35,8 +41,6 @@ public class BigNumArithmetic {
         // need to reset our static variables for every test!
         // Let's avoid that by using the object approach like so: 
 
-        //BigNumArithmetic superCalc = new BigNumArithmetic();
-        //superCalc.printCalculations(inputFilePath);
         PrintCalculations calc = new PrintCalculations(inputFilePath);
         calc.printCalculations();
         
@@ -47,9 +51,6 @@ public class BigNumArithmetic {
         // If I had any fields, I'd initialize them here
         
     }
-    
-    // Note: the printCalculations() method was here before but is 
-    // moved to PrintCalculations class for a separate parser implementation
     
    
 }
