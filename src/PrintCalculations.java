@@ -4,15 +4,19 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * 
- * 
+ * @author Deep Datta, Enk Naran
+ *         Description: The parser class that holds the operations and parsing
+ *         methods
+ *
  */
 public class PrintCalculations {
     private String fileName;
 
     /**
+     * PrintCalculations constructor
      * 
-     * 
+     * @param path
+     *            Pass in the file name to be read
      */
     public PrintCalculations(String path) {
 
@@ -21,9 +25,16 @@ public class PrintCalculations {
     }
 
 
-    // Note: This is presuming that the Linked List data structure is putting in
-    // the number nodes backwards like instead of 1234
-    // it would be 4321
+    /**
+     * Description: Add two numbers in the form of LinkedLists
+     * 
+     * @param fir
+     *            First number as a LinkedList
+     * @param sec
+     *            Second number as a LinkedList
+     * @return
+     *         Return the answer as a LinkedList representation of a number
+     */
     public LinkedList addition(LinkedList fir, LinkedList sec) {
 
         LinkedList result = new LinkedList();
@@ -64,12 +75,17 @@ public class PrintCalculations {
 
 
     /**
+     * Description: Multiply to numbers in the form of LinkedLists
      * 
-     * 
+     * @param num1
+     *            First number to multiply through LinkedList
+     * @param num2
+     *            Second number to multiply through LinkedList
+     * @return
+     *         Return the resulted multiplied number as a LinkedList
      */
     public LinkedList multiply(LinkedList num1, LinkedList num2) {
-        // !QUESTION! Does the order matter? If one is longer than the other
-        // Would it be faster if one was on top and the other was on the bottom?
+
         LinkedList toReturn = null;
         num1.resetCurrent();
         num2.resetCurrent();
@@ -80,6 +96,7 @@ public class PrintCalculations {
         LinkedList addTemp1 = null;
         LinkedList addTemp2 = null;
         LinkedStack saveMults = new LinkedStack();
+
         // gets the current number to multiply with the first list
         for (int i = 0; i < num2.getSize(); i++) {
             // Create a new List to save each multiplication
@@ -130,6 +147,17 @@ public class PrintCalculations {
     }
 
 
+    /**
+     * Description: Does the exponentiation of a base and given exponent through
+     * LinkedLists and calls the methods needed for it
+     * 
+     * @param x
+     *            The base used
+     * @param n
+     *            The exponent for the base
+     * @return
+     *         The result as a LinkedList of the number x raised to the power n
+     */
     public LinkedList exponentiation(LinkedList x, LinkedList n) {
         x.resetCurrent();
         n.resetCurrent();
@@ -138,6 +166,16 @@ public class PrintCalculations {
     }
 
 
+    /**
+     * Description: The helper method that does the main calculations
+     * 
+     * @param x
+     *            The base used
+     * @param power
+     *            The power for the base
+     * @return
+     *         The result as a LinkedList of the number x raised to the power n
+     */
     private LinkedList exponentiationHelper(LinkedList x, int power) {
         if (power == 1) {
             return x;
@@ -161,8 +199,11 @@ public class PrintCalculations {
 
 
     /**
+     * Description: Parses the file and reads in RPN notation and does the
+     * operations with the operands
      * 
-     * 
+     * @throws FileNotFoundException
+     *             If file is not found throw this exception
      */
     public void printCalculations() throws FileNotFoundException {
         Scanner scanIn = new Scanner(new File(fileName));
@@ -175,16 +216,13 @@ public class PrintCalculations {
             line = line.trim().replaceAll(" +", " ");
             stack = new LinkedStack();
             // causing the issue
-            if (!line.isEmpty()) { // possible fix to lines with spaces being
-                                 // included
-                                 // takes out extra spaces between strings
+            if (!line.isEmpty()) {
                 String[] rpn = line.split(" ");
                 // Send the array to a method to ensure correct # of numbers and
                 if (isValid(rpn)) {
+
                     for (int i = 0; i < rpn.length; i++) {
-                        // if the string is a number
-                        // put in the linked list
-                        // and push the LL onto the stack
+
                         if (Character.isDigit(rpn[i].charAt(0))) {
                             tempNum1 = new LinkedList(rpn[i]);
                             stack.push(tempNum1);
@@ -220,12 +258,14 @@ public class PrintCalculations {
 
                         }
                     }
-                System.out.println(line + " = " + stack.pop());
+
+                    System.out.println(line + " = " + stack.pop());
                 }
+
                 else { // if it does not fit RPN print with only =
                     System.out.println(line + " =");
                 }
-            
+
             }
 
         }
@@ -234,7 +274,8 @@ public class PrintCalculations {
 
 
     /**
-     * Checks to see if the expressions is in proper Reverse polish Notation
+     * Description: Checks to see if the expressions is in proper Reverse polish
+     * Notation
      * 
      * @return boolean
      *         is or is not proper

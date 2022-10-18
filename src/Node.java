@@ -1,4 +1,4 @@
-// I DONT KNOW ENOUGH ABOUT THE ALGO TO DO THIS DATA STRUCTURE
+
 /**
  * Classic generic node
  * 
@@ -8,8 +8,7 @@
  * @version 10/17/2022
  * 
  */
-public class Node<T>
-{ // Used in both classes
+public class Node<T> {
 
     private T data;
     private Node<T> next;
@@ -25,8 +24,7 @@ public class Node<T>
      * 
      * 
      */
-    public Node(T data, Node<T> nextNode)
-    {
+    public Node(T data, Node<T> nextNode) {
         // this is what's causing the problems
         this.data = data;
         next = nextNode;
@@ -41,8 +39,7 @@ public class Node<T>
      *            The node this new node points to
      * 
      */
-    public Node(Node<T> nextNode)
-    {
+    public Node(Node<T> nextNode) {
         // seems unnecessary
         next = nextNode;
     }
@@ -55,8 +52,7 @@ public class Node<T>
      *         The data inside the node
      * 
      */
-    public T getData()
-    {
+    public T getData() {
 
         return data;
 
@@ -70,8 +66,7 @@ public class Node<T>
      *            The new data
      * 
      */
-    public void setData(T newData)
-    {
+    public void setData(T newData) {
 
         data = newData;
 
@@ -84,8 +79,7 @@ public class Node<T>
      * @return Node
      *         The node this node points to
      */
-    public Node<T> getNext()
-    {
+    public Node<T> getNext() {
 
         return next;
 
@@ -99,8 +93,7 @@ public class Node<T>
      *            The new node to point to
      * 
      */
-    public void setNext(Node<T> nextNode)
-    {
+    public void setNext(Node<T> nextNode) {
 
         next = nextNode;
 

@@ -6,8 +6,7 @@
  * @version 10/17/2022
  * 
  */
-public class LinkedStack
-{
+public class LinkedStack {
     private int size;
     private Node<LinkedList> top;
 
@@ -16,8 +15,7 @@ public class LinkedStack
      * Sets size to 0 and top pointer to null;
      * 
      */
-    public LinkedStack()
-    {
+    public LinkedStack() {
         size = 0;
         top = null;
     }
@@ -30,8 +28,7 @@ public class LinkedStack
      * @param newNum
      *            The LinkedList to be pushed onto the stack
      */
-    public void push(LinkedList newNum)
-    {
+    public void push(LinkedList newNum) {
         // doublecheck to see if it works
         newNum.removeHighZeros();
         top = new Node<LinkedList>(newNum, top);
@@ -46,11 +43,9 @@ public class LinkedStack
      * @return LinkedList
      *         The LL that was popped from the stack
      */
-    public LinkedList pop()
-    {
+    public LinkedList pop() {
         LinkedList toReturn = null;
-        if (!isEmpty())
-        {
+        if (!isEmpty()) {
             toReturn = (LinkedList)top.getData();
             top = (top.getNext());
             size--;
@@ -66,10 +61,8 @@ public class LinkedStack
      * @return LinkedList
      *         The LL at the top of the stack
      */
-    public LinkedList peek()
-    {
-        if (!isEmpty())
-        {
+    public LinkedList peek() {
+        if (!isEmpty()) {
             return (LinkedList)top.getData();
         }
         return null;
@@ -82,8 +75,7 @@ public class LinkedStack
      * @return boolean
      *         The stack is empty or not
      */
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return top == null;
     }
 
@@ -94,8 +86,7 @@ public class LinkedStack
      * @return int
      *         the current size of the stack
      */
-    public int size()
-    {
+    public int size() {
         return size;
     }
 }

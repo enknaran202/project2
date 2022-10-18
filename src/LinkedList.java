@@ -1,6 +1,5 @@
 import java.util.NoSuchElementException;
 
-// I DONT KNOW ENOUGH ABOUT THE ALGO TO DO THIS DATA STRUCTURE
 /**
  * Linked list with access to end.
  * Able to input at the beginning and end of list.
@@ -13,8 +12,7 @@ import java.util.NoSuchElementException;
  * @version 10/1/2022
  * 
  */
-public class LinkedList
-{
+public class LinkedList {
     private Node<Integer> low;
     private Node<Integer> high;
     private Node<Integer> cur;
@@ -24,8 +22,7 @@ public class LinkedList
      * LinkedList constructor
      * 
      */
-    public LinkedList()
-    {
+    public LinkedList() {
         high = null;
         low = null;
         cur = null;
@@ -39,8 +36,7 @@ public class LinkedList
      * @param input
      *            The number in string form to be converted to LL
      */
-    public LinkedList(String input)
-    {
+    public LinkedList(String input) {
         high = null;
         low = null;
         cur = null;
@@ -56,10 +52,8 @@ public class LinkedList
      * @param number
      *            The number to be entered into the list
      */
-    public void addLow(Integer number)
-    {
-        if (isEmpty())
-        {
+    public void addLow(Integer number) {
+        if (isEmpty()) {
 
             low = new Node<Integer>(number, null);
             cur = low;
@@ -68,8 +62,7 @@ public class LinkedList
 
         }
 
-        else
-        {
+        else {
             low = new Node<Integer>(number, low);
             cur = low;
             size++;
@@ -84,17 +77,14 @@ public class LinkedList
      * @param number
      *            The number to be entered into the list
      */
-    public void addHigh(Integer number)
-    {
-        if (isEmpty())
-        {
+    public void addHigh(Integer number) {
+        if (isEmpty()) {
             low = new Node<Integer>(number, null);
             high = low;
             cur = low;
             size++;
         }
-        else
-        {
+        else {
             high.setNext(new Node<Integer>(number, null));
             high = high.getNext();
             size++;
@@ -110,10 +100,8 @@ public class LinkedList
      *            The number to be entered into the list
      */
     // Change to cut out excess zero's 00001234321 = 1234321
-    private void inputString(String input)
-    {
-        for (int i = 0; i < input.length(); i++)
-        {
+    private void inputString(String input) {
+        for (int i = 0; i < input.length(); i++) {
             addLow(Integer.parseInt(String.valueOf(input.charAt(i))));
         }
     }
@@ -123,14 +111,11 @@ public class LinkedList
      * Removes excess zero's. 0000 => 0
      * 
      */
-    public void removeHighZeros()
-    {
+    public void removeHighZeros() {
         Node<Integer> tempCur = low;
-        while (high != low && high.getData() == 0)
-        {
+        while (high != low && high.getData() == 0) {
             tempCur = low;
-            while (tempCur.getNext() != high)
-            {
+            while (tempCur.getNext() != high) {
                 tempCur = tempCur.getNext();
             }
             high = tempCur;
@@ -148,10 +133,8 @@ public class LinkedList
      * 
      */
     @SuppressWarnings("unchecked")
-    public Integer next()
-    {
-        if (!hasNext())
-        {
+    public Integer next() {
+        if (!hasNext()) {
             throw new NoSuchElementException("No nodes left in the list.");
         }
         Integer toReturn = cur.getData();
@@ -167,8 +150,7 @@ public class LinkedList
      *         The size of the LinkedList
      * 
      */
-    public int getSize()
-    {
+    public int getSize() {
         return size;
     }
 
@@ -180,8 +162,7 @@ public class LinkedList
      *         True if not at end. False if at end
      * 
      */
-    public boolean hasNext()
-    {
+    public boolean hasNext() {
         return cur != null;
     }
 
@@ -190,8 +171,7 @@ public class LinkedList
      * Puts current to the beginning of the list
      * 
      */
-    public void resetCurrent()
-    {
+    public void resetCurrent() {
         cur = low;
     }
 
@@ -203,8 +183,7 @@ public class LinkedList
      *         True if empty, False if not
      * 
      */
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return low == null;
     }
 
@@ -213,8 +192,7 @@ public class LinkedList
      * Clears the list
      * 
      */
-    public void clear()
-    {
+    public void clear() {
         low = null;
         high = null;
     }
@@ -227,12 +205,10 @@ public class LinkedList
      * @return String
      *         the list in proper string form
      */
-    public String toString()
-    {
+    public String toString() {
         String toReturn = "";
         resetCurrent();
-        while (hasNext())
-        {
+        while (hasNext()) {
             toReturn = next().toString() + toReturn;
         }
         return toReturn;

@@ -7,15 +7,13 @@ import student.TestCase;
  * @version 10/3/2022
  * 
  */
-public class LinkedStackTest extends TestCase
-{
+public class LinkedStackTest extends TestCase {
     private LinkedStack test;
 
     /**
-     * Set up the test
+     * Description: Set up the test cases
      */
-    public void setUp()
-    {
+    public void setUp() {
         test = new LinkedStack();
         test.push(new LinkedList("4"));
         test.push(new LinkedList("3"));
@@ -25,10 +23,9 @@ public class LinkedStackTest extends TestCase
 
 
     /**
-     * Test Push
+     * Description: Test the push method
      */
-    public void testPush()
-    {
+    public void testPush() {
         assertEquals("1", test.peek().toString());
         test.push(new LinkedList("5"));
         assertEquals("5", test.peek().toString());
@@ -36,10 +33,9 @@ public class LinkedStackTest extends TestCase
 
 
     /**
-     * test Pop
+     * Description: Test the pop method
      */
-    public void testPop()
-    {
+    public void testPop() {
         assertEquals("1", test.pop().toString());
         assertEquals("2", test.pop().toString());
         assertEquals("3", test.pop().toString());
@@ -51,10 +47,9 @@ public class LinkedStackTest extends TestCase
 
 
     /**
-     * Test Peek
+     * Description: Test the peek method
      */
-    public void testPeek()
-    {
+    public void testPeek() {
         assertEquals("1", test.peek().toString());
         test.pop();
         test.pop();
@@ -65,10 +60,9 @@ public class LinkedStackTest extends TestCase
 
 
     /**
-     * Test isEmpty
+     * Description: Test the isEmpty method
      */
-    public void testIsEmpty()
-    {
+    public void testIsEmpty() {
         assertEquals(false, test.isEmpty());
         test.pop();
         test.pop();
@@ -80,10 +74,9 @@ public class LinkedStackTest extends TestCase
 
 
     /**
-     * Test Size
+     * Description: Test the size method
      */
-    public void testSize()
-    {
+    public void testSize() {
         assertEquals(4, test.size());
         test.pop();
         assertEquals(3, test.size());

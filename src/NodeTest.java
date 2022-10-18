@@ -9,8 +9,7 @@ import student.TestCase;
  * @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
  * 
  */
-public class NodeTest extends TestCase
-{
+public class NodeTest extends TestCase {
 
     private Node<Integer> test1;
     private Node<Integer> test2;
@@ -20,11 +19,10 @@ public class NodeTest extends TestCase
     // ----------------------------------------------------------
     /**
      * 
-     * Sets up test Node objects to be used
+     * Description: Sets up test Node objects to be used
      * 
      */
-    public void setUp()
-    {
+    public void setUp() {
 
         test1 = new Node<Integer>(1, null);
         test3 = new Node<Integer>(3, null);
@@ -35,10 +33,9 @@ public class NodeTest extends TestCase
 
 
     /**
-     * Tests getData
+     * Description: Tests getData method
      */
-    public void testGetData()
-    {
+    public void testGetData() {
 
         assertEquals(1, ((int)test1.getData()));
         assertEquals(2, ((int)test2.getData()));
@@ -52,10 +49,9 @@ public class NodeTest extends TestCase
 
 
     /**
-     * tests setData
+     * Description: Tests setData method
      */
-    public void testSetData()
-    {
+    public void testSetData() {
 
         assertEquals(1, ((int)test1.getData()));
         test1.setData(0);
@@ -70,10 +66,9 @@ public class NodeTest extends TestCase
 
 
     /**
-     * tests getNext
+     * Description: Tests getNext method
      */
-    public void testGetNext()
-    {
+    public void testGetNext() {
 
         assertNull(test1.getNext());
         assertEquals(test1, test4.getNext());
@@ -83,10 +78,9 @@ public class NodeTest extends TestCase
 
 
     /**
-     * tests setNext
+     * Description: Tests setNext method
      */
-    public void testSetNext()
-    {
+    public void testSetNext() {
 
         assertNull(test1.getNext());
         test1.setNext(test2);

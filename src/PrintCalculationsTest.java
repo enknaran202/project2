@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 
 /**
+ * Description: The test class used to test PrintCalculations parser class
+ * 
  * @author Deep Datta (PID: ddeep21), Enk Naran (PID: enk)
  *
  */
@@ -25,6 +27,9 @@ public class PrintCalculationsTest extends TestCase {
     private LinkedList testOne;
     private LinkedList testTwo;
 
+    /**
+     * Description: The setup method that sets up test cases
+     */
     public void setUp() {
 
         test = new PrintCalculations("SampleInput.txt");
@@ -95,6 +100,9 @@ public class PrintCalculationsTest extends TestCase {
     }
 
 
+    /**
+     * Description: Tests the addition method
+     */
     public void testAddtion() {
         assertEquals("5555", test.addition(test1, test2).toString());
         assertEquals("5555", test.addition(test2, test1).toString());
@@ -112,6 +120,9 @@ public class PrintCalculationsTest extends TestCase {
     }
 
 
+    /**
+     * Description: Tests the multiplication method
+     */
     public void testMultiply() {
         assertEquals("5332114", test.multiply(test1, test2).toString());
         assertEquals("5332114", test.multiply(test2, test1).toString());
@@ -123,6 +134,9 @@ public class PrintCalculationsTest extends TestCase {
     }
 
 
+    /**
+     * Description: Tests the exponentiation method
+     */
     public void testExponentiation() {
         assertEquals("1", test.exponentiation(test5, test0).toString());
         assertEquals("4936000", test.exponentiation(test5, testOne).toString());
@@ -136,6 +150,9 @@ public class PrintCalculationsTest extends TestCase {
     }
 
 
+    /**
+     * Description: Tests when RPN is valid in the isValid method
+     */
     public void testIsValid() {
 
         String[] toTest = new String[] { "000000056669777", "99999911111", "+",
@@ -158,19 +175,27 @@ public class PrintCalculationsTest extends TestCase {
     }
 
 
+    /**
+     * Description: Tests of the file output is as expected
+     * 
+     * @throws FileNotFoundException
+     *             Throw this error when file not found
+     */
     public void testPrintCalculations() throws FileNotFoundException {
 
         PrintStreamWithHistory sysout = systemOut();
         test.printCalculations();
         assertEquals(
-            "000000056669777 99999911111 + 352324012 + 03 ^ 555557778 * = 562400792227677956625810678708149922000000" + "\n"
-                + "99999999 990001 * 01119111 55565 33333 + * + 88888888 + = 99099674628565" + "\n"
-                + "123456789 1111111111 * 111119 2111111 9111111 * + * 1 ^ = 2638486500477638652325851269760" + "\n"
-                + "9 1 + 5 * 00000000 + = 50" + "\n" 
-                + "999999999 0 * = 0" + "\n"
-                + "9 0 ^ = 1" + "\n"
+            "000000056669777 99999911111 + 352324012 + 03 ^ 555557778 * = 562400792227677956625810678708149922000000"
+                + "\n"
+                + "99999999 990001 * 01119111 55565 33333 + * + 88888888 + = 99099674628565"
+                + "\n"
+                + "123456789 1111111111 * 111119 2111111 9111111 * + * 1 ^ = 2638486500477638652325851269760"
+                + "\n" + "9 1 + 5 * 00000000 + = 50" + "\n"
+                + "999999999 0 * = 0" + "\n" + "9 0 ^ = 1" + "\n"
                 + "5555555 333333 5454353 999999 666666 01 ^ * * + =" + "\n"
-                + "3432 3333 9999 + * ^ * * 6666 + =" + "\n", sysout.getHistory());
+                + "3432 3333 9999 + * ^ * * 6666 + =" + "\n", sysout
+                    .getHistory());
         sysout.clearHistory();
 
     }
