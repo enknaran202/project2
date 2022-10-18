@@ -167,15 +167,16 @@ public class PrintCalculations {
         Scanner scanIn = new Scanner(new File(fileName));
         LinkedList tempNum1 = null;
         LinkedList tempNum2 = null;
-        LinkedStack stack = new LinkedStack();
+        LinkedStack stack = null;
 
         while (scanIn.hasNext()) {
             String line = scanIn.nextLine();
-            if (!line.isEmpty() || !line.trim().equals("") || !line.trim()
-                .equals("\n")) { // possible fix to lines with spaces being
+            line = line.trim().replaceAll(" +", " ");
+            stack = new LinkedStack();
+            // causing the issue
+            if (!line.isEmpty()) { // possible fix to lines with spaces being
                                  // included
                                  // takes out extra spaces between strings
-                line = line.trim().replaceAll(" +", " ");
                 String[] rpn = line.split(" ");
                 // Send the array to a method to ensure correct # of numbers and
                 if (isValid(rpn)) {
@@ -205,8 +206,8 @@ public class PrintCalculations {
                                     break;
                                 case "^":
                                     // do power thing 1 and 2
-                                    stack.push(exponentiation(tempNum1,
-                                        tempNum2));
+                                    stack.push(exponentiation(tempNum2,
+                                        tempNum1));
                                     // push onto stack
                                     break;
                                 default:
@@ -218,10 +219,12 @@ public class PrintCalculations {
 
                         }
                     }
+                System.out.println(line + " = " + stack.pop());
                 }
                 else { // if it does not fit RPN print with only =
                     System.out.println(line + " =");
                 }
+            
             }
 
         }
