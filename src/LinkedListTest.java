@@ -37,8 +37,16 @@ public class LinkedListTest extends TestCase
     public void testAddLow()
     {
         assertEquals("12345678", list.toString());
+        assertEquals(8, list.getSize());
         list.addLow(0);
+        assertEquals(9, list.getSize());
         assertEquals("123456780", list.toString());
+        
+        LinkedList newList = new LinkedList();
+        assertEquals(0, newList.getSize());
+        newList.addLow(0);
+        assertEquals(1, newList.getSize());
+        
     }
 
 
@@ -48,8 +56,14 @@ public class LinkedListTest extends TestCase
     public void testAddHigh()
     {
         assertEquals("12345678", list.toString());
+        assertEquals(8, list.getSize());
         list.addHigh(0);
+        assertEquals(9, list.getSize());
         assertEquals("012345678", list.toString());
+        LinkedList newList = new LinkedList();
+        assertEquals(0, newList.getSize());
+        newList.addHigh(0);
+        assertEquals(1, newList.getSize());
     }
 
 
