@@ -62,6 +62,7 @@ public class PrintCalculations {
         return result;
     }
 
+
     /**
      * 
      * 
@@ -205,8 +206,8 @@ public class PrintCalculations {
                                     break;
                                 case "^":
                                     // do power thing 1 and 2
-                                    stack.push(exponentiation(tempNum1,
-                                        tempNum2));
+                                    stack.push(exponentiation(tempNum2,
+                                        tempNum1));
                                     // push onto stack
                                     break;
                                 default:
