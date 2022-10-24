@@ -24,14 +24,24 @@ import java.util.Scanner;
 // Name: Enk Naran, PID: enknaran
 
 /**
+ * Main
+ * 
  * @author Deep Datta, Enk Naran
- *         Description: The main method class that runs the whole program
- *
+ * @version 10/17/2022
  */
-public class BigNumArithmetic {
+public class BigNumArithmetic
+{
 
-    public static void main(String[] args) throws FileNotFoundException {
-        if (args.length != 1) {
+    /**
+     * Main
+     * 
+     * @param args
+     *            string array being read
+     */
+    public static void main(String[] args) throws FileNotFoundException
+    {
+        if (args.length != 1)
+        {
             throw new IllegalArgumentException(
                 "Exactly one argument needed: file-input");
         }
@@ -45,14 +55,4 @@ public class BigNumArithmetic {
         calc.printCalculations();
 
     }
-
-
-    /**
-     * Description: If there are any fields to setup for the project they would
-     * be setup here
-     */
-    public BigNumArithmetic() {
-
-    }
-
 }
